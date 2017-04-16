@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170416071733) do
+ActiveRecord::Schema.define(version: 20170416043343) do
 
   create_table "item_photos", force: :cascade do |t|
     t.string   "item_id"
@@ -24,12 +24,6 @@ ActiveRecord::Schema.define(version: 20170416071733) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "pano"
-  end
-
-  create_table "static_pages", force: :cascade do |t|
-    t.string   "home"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
 end

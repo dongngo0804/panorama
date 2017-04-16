@@ -30,18 +30,15 @@ class ItemsController < ApplicationController
   # POST /items.json
   def create
     @item = Item.new(item_params)
-    respond_to do |format|
       if @item.save
         params[:item_photos]['photo'].each do |a|
           @item_photo = @item.item_photos.create!(:photo => a)
         end
         @item.update_pano
-        format.html { redirect_to @item, notice: 'Item was successfully created.' }
-        format.json { render :show, status: :created, location: @item }
+        flash[:success] = "Panorama image successfully created"
+        redirect_to @item
       else
-        format.html { render :new }
-        format.json { render json: @item.errors, status: :unprocessable_entity }
-      end
+        flash[:error] = "Error!!" 
     end
   end
 

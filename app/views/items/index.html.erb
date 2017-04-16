@@ -3,7 +3,9 @@
 
   <div class="carousel">
     <% @items.each do |item| %>
+    <% unless item.pano.nil? %>
     <%=link_to image_tag(item.pano, size: '300x300'),item, class: 'carousel-item'%>
+    <% end %>
     <% end %>
    
   </div>

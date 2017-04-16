@@ -12,13 +12,6 @@ class ItemsController < ApplicationController
   # GET /items/1.json
   def show
     @item_photos = @item.item_photos.all
-    vec = []
-    @item_photos.each do |a|
-      vec << a.photo.current_path
-    end
-    des = Rails.public_pathma.join('panooo.jpg').to_s
-    p = ProcessImage.new(vec,des)
-    p.generate_pano
   end
 
   # GET /items/new
@@ -40,6 +33,7 @@ class ItemsController < ApplicationController
         params[:item_photos]['photo'].each do |a|
           @item_photo = @item.item_photos.create!(:photo => a)
         end
+        @item.update_pano
         format.html { redirect_to @item, notice: 'Item was successfully created.' }
         format.json { render :show, status: :created, location: @item }
       else

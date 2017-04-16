@@ -1,27 +1,11 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
 
-<h1>Items</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+  <div class="carousel">
     <% @items.each do |item| %>
-      <tr>
-        <td><%= item.name %></td>
-        <td><%= link_to 'Show', item %></td>
-        <td><%= link_to 'Edit', edit_item_path(item) %></td>
-        <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <%=link_to image_tag(item.pano, size: '300x300'),item, class: 'carousel-item'%>
     <% end %>
-  </tbody>
-</table>
+   
+  </div>
 
-<br>
-
-<%= link_to 'New Item', new_item_path %>
+</div>

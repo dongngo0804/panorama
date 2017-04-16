@@ -12,6 +12,8 @@ class ItemsController < ApplicationController
   # GET /items/1.json
   def show
     @item_photos = @item.item_photos.all
+    puts action_name
+    puts controller_name
   end
 
   # GET /items/new

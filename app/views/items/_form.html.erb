@@ -1,4 +1,8 @@
-<%= form_for(@item, :html => { :multipart => true }) do |f| %>
+<div class = 'row'>
+<div class = 'col m6 offset-m3'>
+<div class="card-panel z-depth-5">
+
+<%= form_for(@item, :html => { :multipart => true, :class => ''}) do |f| %>
   <% if item.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(item.errors.count, "error") %> prohibited this item from being saved:</h2>
@@ -11,19 +15,28 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %>
+  <div class="input-field">
+    <%= f.label :name, 'Enter your photo name' %>
     <%= f.text_field :name %>
   </div>
 
-  <%= f.fields_for :item_photos do |p| %>
-     <div class="field">
-       <%= p.label :photo %><br>
-       <%= p.file_field :photo, :multiple => true, name: "item_photos[photo][]" %>
-     </div>
-   <% end %>
+  <div class="file-field input-field">
+    <%= f.fields_for(:item_photos, nil, { :class => 'file-field input-field' }) do |p| %>
+        <div class="btn">
+          <span>File</span>
+          <%= p.file_field :photo, :multiple => true, name: "item_photos[photo][]" %>
+        </div>
+        <div class="file-path-wrapper">
+          <input class="file-path validate" type="text" placeholder="Choose 2 or more photos from your computer">
+        </div>
+     <% end %>
+  </div>
 
-  <div class="actions">
-    <%= f.submit %>
+  <div class="actions input-field">
+    <%= f.submit 'Create panorama', class: 'btn' %>
   </div>
 <% end %>
+
+</div>
+</div>
+</div>

@@ -29,21 +29,31 @@ git clone https://github.com/dongngo0804/panorama.git
 cd panorama
 ```
 
+Add panorama shared object to your default library
+
 ```
 /usr/bin/install -c -m 0755 pano.so /home/deploy/.rbenv/versions/2.3.0/lib/ruby/site_ruby/2.3.0/x86_64-linux
 ```
+
+Install required gems
 
 ```
 bundle install
 ```
 
+Migrate database
+
 ```
 rails db:migrate
 ```
 
+Boot puma server
+
 ```
 rails s
 ```
+
+Visit localhost:3000 to see your webpage
 
 ## Contributing
 

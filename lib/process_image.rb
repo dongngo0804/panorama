@@ -11,8 +11,4 @@ class ProcessImage
       Pano::Panorama.new.exec(@vec, @des_path)
       puts 'done!!'
 	end
-
-	def hello
-		puts "hello"
-	end
 end
